@@ -1,0 +1,10 @@
+# Mahdi Barbershop delivery checklist
+
+- [ ] **Real PostgreSQL booking foundation:** Services, users, bookings, booking service snapshots, working hours, blocked slots, device tokens and booking status history are persisted through migrations; service prices and durations are snapshotted at booking time.
+- [ ] **Conflict-safe availability and booking:** Availability accounts for working hours, blocked intervals, selected duration and existing pending/confirmed/in-progress bookings; overlapping appointments are rejected by the backend, including simultaneous requests, with a conflict response.
+- [ ] **Customer booking flow:** Customer can select multiple active database services, see calculated total price/duration, choose an available slot, submit validated French/Algerian customer and address details without mandatory registration, receive a backend-generated booking reference, and see success only after persistence.
+- [ ] **Authentication and authorization:** Admin login uses hashed credentials and JWT; protected admin operations reject customer/anonymous callers; tokens are stored securely on device.
+- [ ] **Admin operations:** Dashboard, booking list/status transitions, services management, working hours, blocked slots and notification records use real database values rather than decorative hardcoded values.
+- [ ] **Notifications:** Device registration and event notification abstraction are implemented; production push delivery requires supplied Expo/FCM credentials and a native build verification.
+- [ ] **Mobile resilience:** Loading, empty, error, offline and Android back behavior are implemented for API-backed flows without discarding the existing visual design.
+- [ ] **Verification and delivery:** Automated tests cover booking creation, totals, availability, conflict prevention, simultaneous requests, admin auth/authorization, status transitions, service/working-hour management, cancellation, notifications and invalid customer input; Android APK is claimed only after an actual EAS/native build succeeds.
